@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:v_meet/resources/login_auth.dart';
 
-import 'package:v_meet/widgets/login-page/login_button.dart';
+import 'package:v_meet/widgets/login_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -10,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final AuthMethods _authMethods = AuthMethods();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,12 @@ class _LoginScreenState extends State<LoginScreen> {
           width: 500,
         ),
         LoginButton(
-          onPressed: () {},
+          onPressed: () async {
+            bool res = await _authMethods.signInWithGoogle(context);
+            if (res) {
+              Navigator.pushNamed(context, '/home');
+            }
+          },
           text: 'Login With Google',
         ),
       ]),
