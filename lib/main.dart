@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:v_meet/screens/login_screen.dart';
+import 'package:v_meet/utils/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Text('Hello World'),
+      debugShowCheckedModeBanner: false,
+      title: 'We-Meet',
+      theme:
+          ThemeData.dark().copyWith(scaffoldBackgroundColor: backgroundColor),
+      routes: {
+        '/login': (context) => LoginScreen(),
+      },
+      home: const LoginScreen(),
     );
   }
 }
