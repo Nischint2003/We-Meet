@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
       theme:
           ThemeData.dark().copyWith(scaffoldBackgroundColor: backgroundColor),
       routes: {
-        '/login': (context) => LoginScreen(),
-        '/home': (context) => HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/home': (context) => const HomeScreen(),
       },
       home: StreamBuilder(
         stream: AuthMethods().authChanges,
